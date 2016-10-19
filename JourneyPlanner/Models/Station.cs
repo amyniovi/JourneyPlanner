@@ -3,8 +3,8 @@ namespace JourneyPlanner
 {
 	public class Station
 	{
-		public Station()
-		{
-		}
+		public string Name;
+		public string Line;
+
 	}
 }

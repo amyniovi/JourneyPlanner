@@ -1,8 +1,8 @@
 ﻿using System;
 namespace JourneyPlanner.Data
 {
-	public interface IJourneyPlannerRepository
+	public class JourneyPlannerRepository : IJourneyPlannerRepository
 	{
-		
+
 	}
 }

@@ -1,4 +1,7 @@
 ﻿using System.Web.Http;
+using System.Net.Http.Formatting;
+using Newtonsoft.Json.Serialization;
+using System.Linq;
 
 namespace JourneyPlanner
 {
@@ -11,11 +14,15 @@ namespace JourneyPlanner
 			// Web API routes
 			config.MapHttpAttributeRoutes();
 
-			config.Routes.MapHttpRoute(
+			/*config.Routes.MapHttpRoute(
 				name: "DefaultApi",
 				routeTemplate: "api/{controller}/{id}",
 				defaults: new { id = RouteParameter.Optional }
-			);
+			);*/
+
+			//TestThis
+			var jsonFormatter = config.Formatters.OfType<JsonMediaTypeFormatter>().FirstOrDefault();
+			jsonFormatter.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
 		}
 	}
 }

@@ -2,21 +2,21 @@
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using JourneyPlanner.Data;
 
 namespace JourneyPlanner
 {
-	[]
-	public class HomeController : ApiController
+	[RoutePrefix("api/routes")]
+	public class RouteController : BaseApiController
 	{
-		public HomeController()
-		{
-		}
+		public RouteController(IJourneyPlannerRepository repo) : base(repo) { }
 
-		public IHttpActionResult Get(String Start, String Destination, String Via = null, String Excluding)
-		{ 
-		
-		
-		
+		[Route("")]
+		public IHttpActionResult Get(String Start, String Destination, String Via = null, String Excluding = null)
+		{
+			var results = "stay where you are";
+
+			return Ok(results);
 		}
 	}
 }

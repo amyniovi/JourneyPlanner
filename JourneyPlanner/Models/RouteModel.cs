@@ -1,9 +1,9 @@
 ﻿using System;
 namespace JourneyPlanner
 {
-	public class Route
+	public class RouteModel
 	{
-		public Route()
+		public RouteModel()
 		{
 		}
 	}
