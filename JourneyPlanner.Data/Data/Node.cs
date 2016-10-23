@@ -6,8 +6,8 @@ namespace JourneyPlanner
 	{
 		public Station Station;
 		public bool isVisited;
-		public List<Link> Links;
-		public Station Next;
+		public List<Node> Connected = new List<Node>();
+	//	public Node Next;
 
 	}
 }

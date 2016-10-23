@@ -80,12 +80,9 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\RouteController.cs" />
     <Compile Include="Models\RouteModel.cs" />
-    <Compile Include="Models\Station.cs" />
-    <Compile Include="Models\Link.cs" />
     <Compile Include="Controllers\BaseApiController.cs" />
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="Models\ModelFactory.cs" />
-    <Compile Include="Models\Node.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Controllers\" />

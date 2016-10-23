@@ -33,9 +33,15 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\IJourneyPlannerRepository.cs" />
     <Compile Include="Repositories\JourneyPlannerRepository.cs" />
+    <Compile Include="Data\MyLinkedList.cs" />
+    <Compile Include="Data\Node.cs" />
+    <Compile Include="Data\Link.cs" />
+    <Compile Include="Data\Station.cs" />
+    <Compile Include="GraphStuff.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Repositories\" />
+    <Folder Include="Data\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

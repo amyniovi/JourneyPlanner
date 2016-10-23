@@ -17,7 +17,7 @@ namespace JourneyPlanner
 			_urlHelper = new UrlHelper(request);
 		}
 
-		public RouteModel Create(List<Link> StationLinks)
+		public RouteModel Create(List<Node> path)
 		{
 
 			return new RouteModel {
