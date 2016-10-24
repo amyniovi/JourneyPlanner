@@ -14,19 +14,18 @@ namespace JourneyPlanner
 		public RouteController(IJourneyPlannerRepository repo) : base(repo) { }
 
 		//http://127.0.0.1:8080/api/routes?start=dkd&destination=jfoi
-		[Route("")]
+		[Route("{start}/{destination}")]
 		public IHttpActionResult Get(String start, String destination, String via = null, String excluding = null)
 		{
 
 			var results = new List<string>();
 			//get via
 			//get excl
-
-
-			var graph = Repo.Get();
+				var graph = Repo.Get();
 			var happyPath = RouteProviderService.GetHappyPath(graph, start, destination);
 			//RouteModel.Create(List<Route>)
 			happyPath.ForEach(node => results.Add(node.Station.Name));
+			//Access-Control-Allow-Origin: *
 			return Ok(results);
 		}
 

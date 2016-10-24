@@ -83,10 +83,12 @@
     <Compile Include="Controllers\BaseApiController.cs" />
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="Models\ModelFactory.cs" />
+    <Compile Include="Filters\HeaderAllowOriginAttribute.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Controllers\" />
     <Folder Include="Models\" />
+    <Folder Include="Filters\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\JourneyPlanner.Data\JourneyPlanner.Data.csproj">

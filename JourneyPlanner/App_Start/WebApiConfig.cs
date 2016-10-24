@@ -23,6 +23,8 @@ namespace JourneyPlanner
 			//TestThis
 			var jsonFormatter = config.Formatters.OfType<JsonMediaTypeFormatter>().FirstOrDefault();
 			jsonFormatter.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+
+			config.Filters.Add(new HeaderAllowOriginAttribute());
 		}
 	}
 }

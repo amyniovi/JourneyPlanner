@@ -5,12 +5,18 @@ namespace JourneyPlanner.Client
 {
 	public class BundleConfig
 	{
-		public static void RegisterBundles(BundleCollection bundles) {
+		public static void RegisterBundles(BundleCollection bundles)
+		{
 
 			bundles.Add(new ScriptBundle("~/bundles/JourneyPlanner")
-						.IncludeDirectory("~/Scripts/Controllers","*.js")
-						.Include("~/Scripts/app.js")
-			           );
+				
+				
+				.Include("~/Scripts/app.js")
+
+			            .IncludeDirectory("~/Scripts/Services", "*.js")
+			            .IncludeDirectory("~/Scripts/Controllers", "*.js")
+
+					   );
 		}
 	}
 }
