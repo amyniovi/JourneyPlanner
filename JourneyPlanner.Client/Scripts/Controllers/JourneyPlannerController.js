@@ -15,15 +15,11 @@ var JourneyPlannerCtrl = function($scope, JPService) {
 
     var onError = function(error) {
         $scope.model = {
-            helloAngular: 'error'
+            helloAngular: "We were unable to retrieve valid routes corresponding to these stations, please try again!"
         };
     };
 
     var routes = JPService.getRoutes().then(onSucess, onError);
-
-
-   
-
 
 }
 
