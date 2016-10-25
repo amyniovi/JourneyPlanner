@@ -1,11 +1,15 @@
-﻿var JourneyPlannerCtrl = function($scope, JPService) {
+﻿
 
-    var routes = JPService.getRoutes().then(onSucess, onError);
+//(function(){
+
+var JPApp = angular.module('JP');
+
+var JourneyPlannerCtrl = function($scope, JPService) {
 
 
-    var onSucess = function(result) {
+	 var onSucess = function(result) {
         $scope.model = {
-            helloAngular: result.data
+            helloAngular: result
         };
     };
 
@@ -15,8 +19,15 @@
         };
     };
 
-    $scope.model = {
-        helloAngular: routes
-    };
+    var routes = JPService.getRoutes().then(onSucess, onError);
+
+
+   
+
 
 }
+
+JPApp.controller('JourneyPlannerCtrl', JourneyPlannerCtrl);
+
+//})();
+
