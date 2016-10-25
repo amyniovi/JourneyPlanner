@@ -2,6 +2,7 @@
 using System.Net.Http.Formatting;
 using Newtonsoft.Json.Serialization;
 using System.Linq;
+using WebApiContrib.Formatting.Jsonp;
 
 namespace JourneyPlanner
 {
@@ -24,7 +25,9 @@ namespace JourneyPlanner
 			var jsonFormatter = config.Formatters.OfType<JsonMediaTypeFormatter>().FirstOrDefault();
 			jsonFormatter.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
 
-			//config.Filters.Add(new HeaderAllowOriginAttribute());
+			config.Formatters.Insert(0, new JsonpMediaTypeFormatter(new JsonMediaTypeFormatter()));
+
+			config.Filters.Add(new HeaderAllowOriginAttribute());
 		}
 	}
 }

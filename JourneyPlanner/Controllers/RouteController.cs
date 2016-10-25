@@ -25,7 +25,7 @@ namespace JourneyPlanner
 			var happyPath = RouteProviderService.GetHappyPath(graph, start, destination);
 			//RouteModel.Create(List<Route>)
 			happyPath.ForEach(node => results.Add(node.Station.Name));
-			//Access-Control-Allow-Origin: *
+
 			return Ok(results);
 		}
 

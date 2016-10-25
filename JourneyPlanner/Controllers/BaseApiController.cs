@@ -6,6 +6,7 @@ using JourneyPlanner.Data;
 
 namespace JourneyPlanner
 {
+	[HeaderAllowOriginAttribute]
 	public abstract class BaseApiController : ApiController
 	{
 		IJourneyPlannerRepository _repo;
