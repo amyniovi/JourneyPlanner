@@ -5,11 +5,13 @@ namespace JourneyPlanner.App_Start
 {
 	using System;
 	using System.Web;
+	using System.Web.Http;
 	using JourneyPlanner.Data;
 	using Microsoft.Web.Infrastructure.DynamicModuleHelper;
 
 	using Ninject;
 	using Ninject.Web.Common;
+	using WebApiContrib.IoC.Ninject;
 
 	public static class NinjectWebCommon 
     {
@@ -46,6 +48,8 @@ namespace JourneyPlanner.App_Start
                 kernel.Bind<Func<IKernel>>().ToMethod(ctx => () => new Bootstrapper().Kernel);
                 kernel.Bind<IHttpModule>().To<HttpApplicationInitializationHttpModule>();
 
+				//support web api
+				GlobalConfiguration.Configuration.DependencyResolver = new NinjectResolver(kernel);
 		
                 RegisterServices(kernel);
                 return kernel;
@@ -56,7 +60,7 @@ namespace JourneyPlanner.App_Start
                 throw;
             }
         }
-
+			
         /// <summary>
         /// Load your modules or register your services here!
         /// </summary>

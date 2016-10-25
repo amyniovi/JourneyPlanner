@@ -13,7 +13,7 @@ namespace JourneyPlanner
 	{
 		public RouteController(IJourneyPlannerRepository repo) : base(repo) { }
 
-		//http://127.0.0.1:8080/api/routes?start=dkd&destination=jfoi
+		//http://127.0.0.1:8080/api/routes/start/destination
 		[Route("{start}/{destination}")]
 		public IHttpActionResult Get(String start, String destination, String via = null, String excluding = null)
 		{
