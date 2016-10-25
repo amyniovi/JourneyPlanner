@@ -15,7 +15,8 @@ namespace JourneyPlanner.Client
 
 			            .IncludeDirectory("~/Scripts/Services", "*.js")
 			            .IncludeDirectory("~/Scripts/Controllers", "*.js")
-
+			            .Include("~/Scripts/bootstrap.min.js")
+			            .Include("~/Scripts/jquery-1.9.1.min.js")
 					   );
 		}
 	}

@@ -9,13 +9,13 @@ var JourneyPlannerCtrl = function($scope, JPService) {
 
 	 var onSucess = function(result) {
         $scope.model = {
-            helloAngular: result
+            JourneyPlanner : result
         };
     };
 
     var onError = function(error) {
         $scope.model = {
-            helloAngular: "We were unable to retrieve valid routes corresponding to these stations, please try again!"
+            JourneyPlanner: "We were unable to retrieve valid routes corresponding to these stations, please try again!"
         };
     };
 

@@ -1,13 +1,29 @@
 ﻿<!DOCTYPE html>
 <html ng-app='JP' ng-controller='JourneyPlannerCtrl'>
 <head>
-    <title ng-bind="model.helloAngular"></title>
+    <title ng-bind="model.JourneyPlanner"></title>
+		<link href="~/Content/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
     
-    <input type="text" ng-model="model.helloAngular" />
-    <h1>{{model.helloAngular}}</h1>
-    
+    <input type="text" ng-model="model.JourneyPlanner" />
+    <h1>{{model.JourneyPlanner}}</h1>
+
+    <form name="findRoute">
+			<table>
+			<tr><td> <input type="text" value="Start Station" onfocus='this.value = ""'/></td></tr>
+			<tr><td><input type="text" disabled="true" value="Via Station" onfocus='this.value = ""'/></td></tr>
+			<tr><td><input type="text" value="Destination Station" onfocus='this.value="";' />	</td></tr>
+			<tr><td><input type="text" disabled="true" value="Excluding Station" onfocus='this.value = ""'/></td></tr>
+			<tr><td><button type="button" class="btn btn-primary">Get Routes</button></td></tr>
+			</table>
+   
+	
+
+
+
+		</form>
+		
     <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular.min.js"></script>
     @Scripts.Render("~/bundles/JourneyPlanner");
 </body>
