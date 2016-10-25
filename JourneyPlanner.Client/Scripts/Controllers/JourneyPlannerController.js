@@ -1,26 +1,22 @@
-﻿
+﻿var JourneyPlannerCtrl = function($scope, JPService) {
 
-var JourneyPlannerCtrl = function($scope, JPService){
-
-var routes = JPService.getRoutes().then(onSucess, onError);
+    var routes = JPService.getRoutes().then(onSucess, onError);
 
 
-var onSucess = function(result){
-$scope.model = {
-helloAngular: result.data
-};
-};
+    var onSucess = function(result) {
+        $scope.model = {
+            helloAngular: result.data
+        };
+    };
 
-var onError = function(error){
-$scope.model = {
-helloAngular: 'error'
-};
-};
+    var onError = function(error) {
+        $scope.model = {
+            helloAngular: 'error'
+        };
+    };
 
-$scope.model = {
-helloAngular: routes
-};
+    $scope.model = {
+        helloAngular: routes
+    };
 
 }
-
-
