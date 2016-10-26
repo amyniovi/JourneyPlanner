@@ -8,18 +8,20 @@ var JourneyPlannerCtrl = function($scope, JPService) {
 
 
 	 var onSucess = function(result) {
-        $scope.model = {
-            JourneyPlanner : result
-        };
-    };
+        $scope.route = result.data;
+        $scope.responseStatus = result.status
+          };
 
     var onError = function(error) {
-        $scope.model = {
-            JourneyPlanner: "We were unable to retrieve valid routes corresponding to these stations, please try again!"
-        };
+        $scope.error = "We were unable to retrieve valid routes corresponding to these stations, please try again!";
     };
 
-    var routes = JPService.getRoutes().then(onSucess, onError);
+    $scope.getRoute = function(start, destination){
+
+     var routes = JPService.getRoutes(start, destination).then(onSucess, onError);
+
+    };
+   
 
 }
 
