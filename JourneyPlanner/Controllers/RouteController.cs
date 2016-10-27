@@ -17,7 +17,6 @@ namespace JourneyPlanner
 		[Route("{start}/{destination}")]
 		public IHttpActionResult Get(String start, String destination, String via = null, String excluding = null)
 		{
-
 			var results = new List<string>();
 			//get via
 			//get excl
@@ -34,15 +33,26 @@ namespace JourneyPlanner
 	public static class RouteProviderService
 	{
 		private static List<Node> _happyPath = new List<Node>();
+		private static Node _startNode = null;
+		private static Node _finishNode = null;
+		private static List<Node> _invalidNodes = new List<Node>();
+		private static List<Node> _happyPathLame = new List<Node>();
 
 
 		public static List<Node> GetHappyPath(List<Node> graph, string start, string destination, string via = null, string excluding = null)
 		{
-
+			
 			var head = graph.First(n => n.Station.Name == start);
 			var finish = graph.First(n => n.Station.Name == destination);
 
+			_startNode = head;
+			_finishNode = finish;
 			TraversePath(head, finish);
+			//_happyPath.AddRange(_happyPathLame);
+			foreach (var node in _invalidNodes)
+			{
+				_happyPath.Remove(node);
+			}
 			return _happyPath;
 
 		}
@@ -51,16 +61,16 @@ namespace JourneyPlanner
 		{
 
 
-			var happyPath = new List<Node>();
-
-
 			if (current == finish)
 			{
 				current.isVisited = true;
-				happyPath.Add(current);
-				return true;
+				_happyPath.Add(current);
+				//return true;
 			}
-
+			else if (current.Connected.Count == 1)
+			{
+				_invalidNodes.Add(current);
+			}
 			//if (!current.Connected.Any())
 			//	return false;
 
@@ -71,13 +81,17 @@ namespace JourneyPlanner
 				{
 					if (TraversePath(node, finish))
 					{
-
-						_happyPath.Add(current);
+				    	_happyPath.Add(current);
 						return true;
 					}
 				}
 
 			}
+			//if (!current.Connected.Any() || !current.Connected.Any(n => !n.isVisited))
+			//	_invalidNodes.Add(current);
+			//return false;
+			_happyPath.Add(current);
+
 			return false;
 
 		}

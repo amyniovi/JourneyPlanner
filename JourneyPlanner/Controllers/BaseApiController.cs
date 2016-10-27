@@ -2,11 +2,12 @@
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.Cors;
 using JourneyPlanner.Data;
 
 namespace JourneyPlanner
 {
-	[HeaderAllowOriginAttribute]
+	[EnableCors("*", "*", "*")]
 	public abstract class BaseApiController : ApiController
 	{
 		IJourneyPlannerRepository _repo;

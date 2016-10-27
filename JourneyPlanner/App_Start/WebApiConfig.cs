@@ -27,7 +27,9 @@ namespace JourneyPlanner
 
 			config.Formatters.Insert(0, new JsonpMediaTypeFormatter(new JsonMediaTypeFormatter()));
 
-			config.Filters.Add(new HeaderAllowOriginAttribute());
+			//config.Filters.Add(new HeaderAllowOriginAttribute());
+
+			config.EnableCors();
 		}
 	}
 }

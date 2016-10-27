@@ -1,10 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
+
 namespace JourneyPlanner
 {
 	public class Station
 	{
 		public string Name;
-		//public string Line;
-
+		public List<Line> Lines;
 	}
 }
