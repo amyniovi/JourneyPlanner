@@ -87,14 +87,13 @@ namespace JourneyPlanner
 				}
 
 			}
-			//if (!current.Connected.Any() || !current.Connected.Any(n => !n.isVisited))
-			//	_invalidNodes.Add(current);
-			//return false;
+
 			_happyPath.Add(current);
 
 			return false;
 
 		}
+
 
 	}
 
